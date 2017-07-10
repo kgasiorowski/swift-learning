@@ -71,81 +71,83 @@ class Student : Person {
 //Main code
 do{
 
+	var input:String
+
 	while(true){
 		
-		print("Enter a name:\n>")
-		var enteredName:String {
 		
-			if let name = readLine() {
-			
-				return name
-			
-			} else {
-			
-				return ""
-			
-			}
+		//Read in name
+		print("Enter a name:")
+		input = readLine()!
 		
-		}
+		//Save name
+		var enteredName = input
 		
-		print("Enter an age:\n>")
+		//Read in age
+		print("Enter an age:")
+		input = readLine()!
+		
+		//Parse and save age 
 		var enteredAge:Int { 
 		
-			if let age = Int(readLine()!) {
+			if let a = Int(input){ 
 			
-				return age
+				return a 
 			
-			} else {
+			} else { 
 			
-				return 0
+				return 0 
 			
 			}
 		
 		}
 		
-		print("Enter m for male, f for female, x for other:\n>")
-		var enteredGender:Gender {
+		//Read in gender
+		print("Enter m for male, f for female, x for other:")
+		input = readLine()!
 		
-			if let input = readLine() {
+		//Parse gender
+		var enteredGender:Gender {
 			
-				let charInput:Character = input[input.startIndex]
-				
-				switch charInput {
-				
-					case "m":
-						return Gender.male
-					case "f":
-						return Gender.female
-					case "x":
-						return Gender.other
-					default:
-						return Gender.error
-				
-				}
+			switch input[input.startIndex] {
 			
+				case "m":
+					return Gender.male
+				case "f":
+					return Gender.female
+				case "x":
+					return Gender.other
+				default:
+					return Gender.error
+				
 			
 			}
-		
-			return Gender.error
 		
 		} 
 		
-		print("Enter a GPA:\n>")
+		//Read in gpa
+		print("Enter a GPA:")
+		input = readLine()!
+		
+		//Parse gpa
 		var enteredGPA:Double {
 		
-			if let gpa = Double(readLine()!) {
+			if let a = Double(input){ 
 			
-				return gpa
+				return a 
 			
-			} else {
+			} else { 
 			
-				return 0
-		
+				return 0 
+			
 			}
 		
 		}
 	
+		//Make a student
 		let student = (Student().setName(enteredName).setAge(enteredAge).setGender(enteredGender) as! Student).setGPA(enteredGPA)
+		
+		//Print a student
 		print(student)
 	
 	}
